@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import H2 from "./H2";
 import H3 from "./H3";
+import FieldSummary from "./FieldSummary";
+import { LABELS, HEADINGS } from "../utils/constants";
 
 const Summary = ({
   contactReview: {
@@ -24,55 +26,23 @@ const Summary = ({
     <Fragment>
       <H2>Saved</H2>
       <p>The contact details have been saved</p>
-      <H3>Contact information</H3>
-      <p>
-        <span>Contact Owner</span>
-        <span>{contactOwner}</span>
-      </p>
-      <p>
-        <span>First Name</span>
-        <span>{firstName}</span>
-      </p>
-      <p>
-        <span>Last Name</span>
-        <span>{lastName}</span>
-      </p>
-      <p>
-        <span>Account Name</span>
-        <span>{accountName}</span>
-      </p>
-      <p>
-        <span>Company Name</span>
-        <span>{companyName}</span>
-      </p>
-      <p>
-        <span>Phone</span>
-        <span>{phone}</span>
-      </p>
-      <p>
-        <span>Fax</span>
-        <span>{fax}</span>
-      </p>
-      <p>
-        <span>Title</span>
-        <span>{title}</span>
-      </p>
-      <p>
-        <span>Street No. & Address</span>
-        <span>{streetAddress}</span>
-      </p>
-      <p>
-        <span>City</span>
-        <span>{city}</span>
-      </p>
-      <p>
-        <span>State</span>
-        <span>{state}</span>
-      </p>
-      <p>
-        <span>Description</span>
-        <span>{description}</span>
-      </p>
+      <H3>{HEADINGS.CONTACT}</H3>
+      <FieldSummary label={LABELS.CONTACT_OWNER} value={contactOwner} />
+      <FieldSummary label={LABELS.FIRST_NAME} value={firstName} />
+      <FieldSummary label={LABELS.LAST_NAME} value={lastName} />
+      <FieldSummary label={LABELS.ACCOUNT_NAME} value={accountName} />
+      <FieldSummary label={LABELS.COMPANY_NAME} value={companyName} />
+      <FieldSummary label={LABELS.PHONE} value={phone} />
+      <FieldSummary label={LABELS.FAX} value={fax} />
+      <FieldSummary label={LABELS.TITLE} value={title} />
+      <FieldSummary label={LABELS.EMAIL} value={email} />
+      <H3>{HEADINGS.ADDRESS}</H3>
+      <FieldSummary label={LABELS.STREET_ADDRESS} value={streetAddress} />
+      <FieldSummary label={LABELS.CITY} value={city} />
+      <FieldSummary label={LABELS.STATE} value={state} />
+      <FieldSummary label={LABELS.POSTCODE} value={postcode} />
+      <H3>{HEADINGS.DESCRIPTION}</H3>
+      <FieldSummary label={LABELS.DESCRIPTION} value={description} />
     </Fragment>
   );
 };

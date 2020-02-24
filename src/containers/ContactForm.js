@@ -8,110 +8,110 @@ import validatePostcode from "../utils/validators/validatePostcode";
 import validatePhone from "../utils/validators/validatePhoneNumber";
 import TextField from "../components/Fields/TextField";
 import TextareaField from "../components/Fields/TextareaField";
-import { CONTACT_FORM_NAME } from "../utils/constants";
+import { CONTACT_FORM_NAME, HEADINGS, LABELS } from "../utils/constants";
 import { showModal } from "../actions";
 import H3 from "../components/H3";
 
-let ContactForm = ({ dispatch, handleSubmit, pristine, reset, submitting }) => {
+let ContactForm = ({ handleSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
-      <H3>Contact image</H3>
+      <H3>{HEADINGS.IMAGE}</H3>
 
-      <H3>Contact information</H3>
+      <H3>{HEADINGS.CONTACT}</H3>
       <Field
         component={TextField}
-        label="Contact Owner"
+        label={LABELS.CONTACT_OWNER}
         name="contactOwner"
         type="text"
         validate={validateRequired}
       />
       <Field
         component={TextField}
-        label="First Name"
+        label={LABELS.FIRST_NAME}
         name="firstName"
         type="text"
         validate={validateRequired}
       />
       <Field
         component={TextField}
-        label="Last Name"
+        label={LABELS.LAST_NAME}
         name="lastName"
         type="text"
         validate={validateRequired}
       />
       <Field
         component={TextField}
-        label="Account Name"
+        label={LABELS.ACCOUNT_NAME}
         name="accountName"
         type="text"
         validate={validateRequired}
       />
       <Field
         component={TextField}
-        label="Company Name"
+        label={LABELS.COMPANY_NAME}
         name="companyName"
         type="text"
         validate={validateRequired}
       />
       <Field
         component={TextField}
-        label="Phone"
+        label={LABELS.PHONE}
         name="phone"
         type="text"
         validate={[validateRequired, validatePhone]}
       />
       <Field
         component={TextField}
-        label="Fax (optional)"
+        label={`${LABELS.FAX}${LABELS.OPTIONAL}`}
         name="fax"
         type="text"
       />
       <Field
         component={TextField}
-        label="Title (optional)"
+        label={`${LABELS.TITLE}${LABELS.OPTIONAL}`}
         name="title"
         type="text"
       />
       <Field
         component={TextField}
-        label="Email"
+        label={LABELS.EMAIL}
         name="email"
         type="text"
         validate={[validateRequired, validateEmail]}
       />
-      <H3>Address information</H3>
+      <H3>{HEADINGS.ADDRESS}</H3>
       <Field
         component={TextField}
-        label="Street No. & Street"
+        label={LABELS.STREET_ADDRESS}
         name="streetAddress"
         type="text"
         validate={validateRequired}
       />
       <Field
         component={TextField}
-        label="City"
+        label={LABELS.CITY}
         name="city"
         type="text"
         validate={validateRequired}
       />
       <Field
         component={TextField}
-        label="State"
+        label={LABELS.STATE}
         name="state"
         type="text"
         validate={validateRequired}
       />
       <Field
         component={TextField}
-        label="Postcode"
+        label={LABELS.POSTCODE}
         name="postcode"
         type="text"
         validate={[validateRequired, validatePostcode]}
       />
-      <H3>Description information</H3>
+      <H3>{HEADINGS.DESCRIPTION}</H3>
       <Field
         component={TextareaField}
-        label="Description"
+        label={LABELS.DESCRIPTION}
         name="description"
         type="text"
         validate={validateRequired}

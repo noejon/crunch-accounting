@@ -1,6 +1,6 @@
 import React from "react";
-import { Icon, Intent } from "@blueprintjs/core";
+import { MdErrorOutline } from "react-icons/md";
 
-const ErrorIcon = () => <Icon intent={Intent.DANGER} icon="error" />;
+const ErrorIcon = () => <MdErrorOutline fill="red" />;
 
 export default ErrorIcon;

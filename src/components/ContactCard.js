@@ -2,18 +2,20 @@ import React from "react";
 import H3 from "./H3";
 
 const ContactCard = ({
-  accountName,
-  city,
-  companyName,
-  contactOwner,
-  description,
-  email,
-  firstName,
-  lastName,
-  phone,
-  postcode,
-  state,
-  streetAddress
+  contactCard: {
+    accountName,
+    city,
+    companyName,
+    contactOwner,
+    description,
+    email,
+    firstName,
+    lastName,
+    phone,
+    postcode,
+    state,
+    streetAddress
+  }
 }) => (
   <div>
     <H3>

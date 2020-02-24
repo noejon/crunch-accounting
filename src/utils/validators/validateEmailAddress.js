@@ -1,5 +1,5 @@
-import { REGEXPS } from "../constants";
+import { FORM_ERRORS, REGEXPS } from "../constants";
 
-export default function validateEmail(email) {
-  return REGEXPS.EMAIL.test(email);
-}
+const validateEmail = value => !REGEXPS.EMAIL.test(value) && FORM_ERRORS.EMAIL;
+
+export default validateEmail;

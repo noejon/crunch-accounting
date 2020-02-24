@@ -5,7 +5,10 @@ export const REGEXPS = {
 };
 
 export const FORM_ERRORS = {
-  REQUIRED: "Required"
+  REQUIRED: "Required",
+  POSTCODE: "Please check the postcode format",
+  PHONE_NUMBER: "Please check the phone number format",
+  EMAIL: "Please check the email format"
 };
 
 export const CONTACT_FORM_NAME = "contactFormName";

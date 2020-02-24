@@ -1,5 +1,6 @@
-import { REGEXPS } from "../constants";
+import { FORM_ERRORS, REGEXPS } from "../constants";
 
-export default function validatePhoneNumber(phone) {
-  return REGEXPS.POSTCODE.test(phone);
-}
+const validatePhoneNumber = value =>
+  !REGEXPS.PHONE_NUMBER.test(value) && FORM_ERRORS.PHONE_NUMBER;
+
+export default validatePhoneNumber;

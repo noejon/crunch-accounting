@@ -5,10 +5,8 @@ const initialState = {
 };
 
 const modalVisibility = (state = initialState, action) => {
-  console.log(action.type);
   switch (action.type) {
     case actionTypes.SHOW_MODAL:
-      console.log("should show modal");
       return {
         showModal: true
       };

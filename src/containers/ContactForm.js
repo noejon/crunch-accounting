@@ -30,9 +30,6 @@ ToggleDiv.defaultProps = {
 };
 
 let ContactForm = ({ handleSubmit, formValues }) => {
-  console.log(validateContactInformation(formValues));
-  console.log(validateEmail(formValues.email) || "Email OK");
-  console.log(validatePhone(formValues.phone) || " Phone OK");
   return (
     <form onSubmit={handleSubmit}>
       <H3>{HEADINGS.IMAGE}</H3>

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 const InputWrapper = styled.div`
+  z-index: 2;
   position: relative;
-  margin-top: 1em;
   display: inline-block;
-  max-width: calc(100% -2.5em);
+  width: 100%;
 `;
 
 InputWrapper.displayName = "InputWrapper";

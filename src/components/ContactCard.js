@@ -1,7 +1,17 @@
 import React from "react";
+import styled from "styled-components";
 import FieldSummary from "./FieldSummary";
 import H3 from "./H3";
 import { LABELS } from "../utils/constants";
+
+const Card = styled.div`
+  margin: 1em;
+  padding: 2em;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 100%;
+`;
+
+Card.displayName = "Card";
 
 const ContactCard = ({
   contactCard: {
@@ -19,7 +29,7 @@ const ContactCard = ({
     streetAddress
   }
 }) => (
-  <div>
+  <Card>
     <H3>
       {firstName} {lastName}
     </H3>
@@ -39,7 +49,7 @@ const ContactCard = ({
       }
     />
     <FieldSummary label={LABELS.DESCRIPTION} value={description} />
-  </div>
+  </Card>
 );
 
 export default ContactCard;

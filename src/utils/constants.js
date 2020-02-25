@@ -22,6 +22,7 @@ export const LABELS = {
   CONTACT_OWNER: "Contact Owner",
   DESCRIPTION: "Description",
   EMAIL: "Email",
+  EMAIL_OPT_OUT: "Email Opt Out",
   FAX: "Fax",
   FIRST_NAME: "First Name",
   LAST_NAME: "Last Name",

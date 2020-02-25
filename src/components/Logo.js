@@ -5,7 +5,7 @@ const Img = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 10%;
+  width: 15%;
 `;
 
 const Logo = () => (

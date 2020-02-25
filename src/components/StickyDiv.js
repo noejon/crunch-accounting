@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const StickyDiv = styled.div`
+  z-index: 99;
   margin: 0;
   padding: 0;
   width: 100%;

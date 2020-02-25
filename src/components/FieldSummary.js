@@ -1,24 +1,31 @@
-import React, { Fragment } from "react";
+import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import Column from "./Column";
+import Row from "./Row";
 
 const Label = styled.div`
-  font-weight: bold;
-  font-size: 14px;
-  color: lightgray;
+  font-size: 18px;
+  color: gray;
+  text-align: right;
+  min-width: 160px;
 `;
 
 const Value = styled.div`
   position: relative;
-  font-size: 14px;
-  padding: 0 25px 1px 25px;
+  font-size: 16px;
+  padding: 1px 15px 0 15px;
 `;
 
 const FieldSummary = ({ label, value }) => (
-  <Fragment>
-    <Label>{label}</Label>
-    <Value>{value}</Value>
-  </Fragment>
+  <Row>
+    <Column>
+      <Label>{label}</Label>
+    </Column>
+    <Column flexValue={3}>
+      <Value>{value}</Value>
+    </Column>
+  </Row>
 );
 
 FieldSummary.displayName = "FieldSummary";

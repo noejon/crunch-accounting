@@ -1,26 +1,28 @@
 import React from "react";
+import Banner from "./containers/Banner";
 import BaseLayout from "./components/BaseLayout";
-import Banner from "./components/Banner";
-import StickyDiv from "./components/StickyDiv";
-import Logo from "./components/Logo";
 import ContactForm from "./containers/ContactForm";
 import ContactCard from "./containers/ContactCard";
+import Container, { HalfContainer } from "./components/Container";
+import Logo from "./components/Logo";
 import ModalSummary from "./containers/ModalSummary";
-import RemoteSubmitButton from "./containers/RemoteSubmitButton";
-import RemoteResetButton from "./containers/RemoteResetButton";
+import StickyDiv from "./components/StickyDiv";
 
 export default function App() {
   return (
     <BaseLayout>
       <StickyDiv>
         <Logo />
-        <Banner>
-          <RemoteSubmitButton />
-          <RemoteResetButton />
-        </Banner>
+        <Banner />
       </StickyDiv>
-      <ContactForm />
-      <ContactCard />
+      <Container>
+        <HalfContainer>
+          <ContactForm />
+        </HalfContainer>
+        <HalfContainer>
+          <ContactCard />
+        </HalfContainer>
+      </Container>
       <ModalSummary />
     </BaseLayout>
   );

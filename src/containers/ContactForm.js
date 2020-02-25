@@ -7,13 +7,16 @@ import validateEmail from "../utils/validators/validateEmailAddress";
 import validateRequired from "../utils/validators/validateRequired";
 import validatePostcode from "../utils/validators/validatePostcode";
 import validatePhone from "../utils/validators/validatePhoneNumber";
+import validateContact from "../utils/validators/validateContact";
+import validateAddress from "../utils/validators/validateAddress";
 import TextField from "../components/Fields/TextField";
+import CheckboxField from "../components/Fields/CheckboxField";
 import TextareaField from "../components/Fields/TextareaField";
 import { CONTACT_FORM_NAME, HEADINGS, LABELS } from "../utils/constants";
 import { showModal } from "../actions";
 import H3 from "../components/H3";
-import validateContactInformation from "../utils/validators/validateContactInformation";
-import validateAddressInformation from "../utils/validators/validateAddressInformation";
+import Column from "../components/Column";
+import Row from "../components/Row";
 
 const ToggleDiv = styled.div`
   ${({ show }) => !show && "display: none"}
@@ -35,112 +38,161 @@ let ContactForm = ({ handleSubmit, formValues }) => {
       <H3>{HEADINGS.IMAGE}</H3>
 
       <H3>{HEADINGS.CONTACT}</H3>
-      <Field
-        component={TextField}
-        label={LABELS.CONTACT_OWNER}
-        name="contactOwner"
-        type="text"
-        validate={validateRequired}
-      />
-      <Field
-        component={TextField}
-        label={LABELS.FIRST_NAME}
-        name="firstName"
-        type="text"
-        validate={validateRequired}
-      />
-      <Field
-        component={TextField}
-        label={LABELS.LAST_NAME}
-        name="lastName"
-        type="text"
-        validate={validateRequired}
-      />
-      <Field
-        component={TextField}
-        label={LABELS.ACCOUNT_NAME}
-        name="accountName"
-        type="text"
-        validate={validateRequired}
-      />
-      <Field
-        component={TextField}
-        label={LABELS.COMPANY_NAME}
-        name="companyName"
-        type="text"
-        validate={validateRequired}
-      />
-      <Field
-        component={TextField}
-        label={LABELS.PHONE}
-        name="phone"
-        type="text"
-        validate={[validateRequired, validatePhone]}
-      />
-      <Field
-        component={TextField}
-        label={`${LABELS.FAX}${LABELS.OPTIONAL}`}
-        name="fax"
-        type="text"
-      />
-      <Field
-        component={TextField}
-        label={`${LABELS.TITLE}${LABELS.OPTIONAL}`}
-        name="title"
-        type="text"
-      />
-      <Field
-        component={TextField}
-        label={LABELS.EMAIL}
-        name="email"
-        type="text"
-        validate={[validateRequired, validateEmail]}
-      />
-      <ToggleDiv show={validateContactInformation(formValues)}>
+      <Row>
+        <Column flexValue={0.5}>
+          <Field
+            component={TextField}
+            label={LABELS.CONTACT_OWNER}
+            name="contactOwner"
+            type="text"
+            validate={validateRequired}
+          />
+        </Column>
+      </Row>
+      <Row>
+        <Column>
+          <Field
+            component={TextField}
+            label={LABELS.FIRST_NAME}
+            name="firstName"
+            type="text"
+            validate={validateRequired}
+          />
+        </Column>
+        <Column>
+          <Field
+            component={TextField}
+            label={LABELS.LAST_NAME}
+            name="lastName"
+            type="text"
+            validate={validateRequired}
+          />
+        </Column>
+      </Row>
+      <Row>
+        <Column>
+          <Field
+            component={TextField}
+            label={LABELS.ACCOUNT_NAME}
+            name="accountName"
+            type="text"
+            validate={validateRequired}
+          />
+        </Column>
+        <Column>
+          <Field
+            component={TextField}
+            label={LABELS.COMPANY_NAME}
+            name="companyName"
+            type="text"
+            validate={validateRequired}
+          />
+        </Column>
+      </Row>
+      <Row>
+        <Column>
+          <Field
+            component={TextField}
+            label={LABELS.PHONE}
+            name="phone"
+            type="text"
+            validate={[validateRequired, validatePhone]}
+          />
+        </Column>
+        <Column>
+          <Field
+            component={TextField}
+            label={`${LABELS.FAX}${LABELS.OPTIONAL}`}
+            name="fax"
+            type="text"
+          />
+        </Column>
+      </Row>
+      <Row>
+        <Column>
+          <Field
+            component={TextField}
+            label={LABELS.EMAIL}
+            name="email"
+            type="text"
+            validate={[validateRequired, validateEmail]}
+          />
+        </Column>
+        <Column>
+          <Field
+            component={TextField}
+            label={`${LABELS.TITLE}${LABELS.OPTIONAL}`}
+            name="title"
+            type="text"
+          />
+        </Column>
+      </Row>
+      <Row>
+        <Column flexValue={0.5}>
+          <Field
+            component={CheckboxField}
+            label={LABELS.EMAIL_OPT_OUT}
+            name="emailOptOut"
+            type="checkbox"
+          />
+        </Column>
+      </Row>
+      <ToggleDiv show={validateContact(formValues)}>
         <H3>{HEADINGS.ADDRESS}</H3>
-        <Field
-          component={TextField}
-          label={LABELS.STREET_ADDRESS}
-          name="streetAddress"
-          type="text"
-          validate={validateRequired}
-        />
-        <Field
-          component={TextField}
-          label={LABELS.CITY}
-          name="city"
-          type="text"
-          validate={validateRequired}
-        />
-        <Field
-          component={TextField}
-          label={LABELS.STATE}
-          name="state"
-          type="text"
-          validate={validateRequired}
-        />
-        <Field
-          component={TextField}
-          label={LABELS.POSTCODE}
-          name="postcode"
-          type="text"
-          validate={[validateRequired, validatePostcode]}
-        />
+        <Row>
+          <Column>
+            <Field
+              component={TextField}
+              label={LABELS.STREET_ADDRESS}
+              name="streetAddress"
+              type="text"
+              validate={validateRequired}
+            />
+          </Column>
+          <Column>
+            <Field
+              component={TextField}
+              label={LABELS.CITY}
+              name="city"
+              type="text"
+              validate={validateRequired}
+            />
+          </Column>
+        </Row>
+        <Row>
+          <Column>
+            <Field
+              component={TextField}
+              label={LABELS.STATE}
+              name="state"
+              type="text"
+              validate={validateRequired}
+            />
+          </Column>
+          <Column>
+            <Field
+              component={TextField}
+              label={LABELS.POSTCODE}
+              name="postcode"
+              type="text"
+              validate={[validateRequired, validatePostcode]}
+            />
+          </Column>
+        </Row>
       </ToggleDiv>
       <ToggleDiv
-        show={
-          validateContactInformation(formValues) &&
-          validateAddressInformation(formValues)
-        }
+        show={validateContact(formValues) && validateAddress(formValues)}
       >
         <H3>{HEADINGS.DESCRIPTION}</H3>
-        <Field
-          component={TextareaField}
-          label={LABELS.DESCRIPTION}
-          name="description"
-          type="text"
-          validate={validateRequired}
-        />
+        <div>
+          <Field
+            component={TextareaField}
+            label={LABELS.DESCRIPTION}
+            name="description"
+            type="text"
+            validate={validateRequired}
+          />
+        </div>
       </ToggleDiv>
     </form>
   );

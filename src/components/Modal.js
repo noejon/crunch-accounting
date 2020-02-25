@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import SecondaryButton from "./Buttons/SecondaryButton";
+import PrimaryButton from "./Buttons/PrimaryButton";
 
 const ModalContainer = styled.div`
+  z-index: 100;
   display: ${({ show }) => (show ? "block" : "none")};
   position: fixed;
   top: 0;
@@ -24,9 +25,11 @@ ModalContainer.defaultProps = {
 ModalContainer.displayName = "ModalContainer";
 
 const ModalMain = styled.section`
+  padding: 3rem;
+  z-index: 100;
   position: fixed;
   background: white;
-  width: 80%;
+  width: 70%;
   height: auto;
   top: 50%;
   left: 50%;
@@ -40,7 +43,7 @@ const Modal = ({ children, handleClose, show }) => {
     <ModalContainer show={show}>
       <ModalMain>
         {children}
-        <SecondaryButton onClick={handleClose}>Close</SecondaryButton>
+        <PrimaryButton onClick={handleClose}>Close</PrimaryButton>
       </ModalMain>
     </ModalContainer>
   );

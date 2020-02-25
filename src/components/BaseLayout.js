@@ -3,15 +3,24 @@ import PropTypes from "prop-types";
 import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
   body {
     margin: 0;
+    background-color: #f5f5f5;
+    font-family: sans-serif;
   }
 `;
 
 const MainDiv = styled.div`
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 `;
 
 const BaseLayout = ({ children }) => (

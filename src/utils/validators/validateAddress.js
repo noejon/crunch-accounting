@@ -7,10 +7,10 @@ import validatePostcode from "./validatePostcode";
  * - Postcode - text input (valid postcode only)
  */
 
-const validateAddressInformation = ({ city, postcode, state, streetAddress }) =>
+const validateAddress = ({ city, postcode, state, streetAddress }) =>
   Boolean(
     city && postcode && state && streetAddress && !validatePostcode(postcode)
     // validatePostcode returns an error message if it is not valid
   );
 
-export default validateAddressInformation;
+export default validateAddress;

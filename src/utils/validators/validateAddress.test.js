@@ -13,10 +13,13 @@ describe("validateAddress", () => {
       state: "NSW",
       postcode: "1234"
     };
-    validatePostcode.mockImplementation(() => true);
   });
 
-  describe("when provided an erronous address", () => {
+  afterEach(() => {
+    jest.resetAllMocks();
+  })
+
+  describe("when provided an erroneous address", () => {
     describe("when the street address is missing", () => {
       it("should return false", () => {
         delete validAddress.streetAddress;
@@ -42,8 +45,11 @@ describe("validateAddress", () => {
       });
     });
     describe("when the postcode is invalid", () => {
+      beforeEach(() => {
+        validatePostcode.mockReturnValue("Error");
+      });
+
       it("should return false", () => {
-        validatePostcode.mockImplementation(() => false);
         expect(validateAddress(validAddress)).toBe(false);
       });
     });

@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+    crunch-accounting:
+        build: .
+        container_name: crunch-accounting
+        restart: always
+        ports:
+            - '80:80'
